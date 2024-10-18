@@ -15,7 +15,7 @@ import {
 
 const navItems = [
   { href: '/', label: 'Home' },
-  { href: '/product', label: 'About' },
+  { href: '/about', label: 'About' },
   { href: '/serve', label: 'Services' },
 ]
 
@@ -33,7 +33,7 @@ export default function Navbar() {
       className="sticky top-0 z-40 w-full border-b border-gray-800 bg-black/90 backdrop-blur-md"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-[9.94vh] items-center justify-between">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
