@@ -17,7 +17,7 @@ export default function AboutPage() {
       >
         <div className="flex flex-col items-center">
           {/* Logo Section */}
-          <Image src="/images/LogoAbout.jpg" alt="Company Logo" width={150} height={150} className="mb-8" />
+          {/* <Image src="/images/LogoAbout.jpg" alt="Company Logo" width={150} height={150} className="mb-8" /> */}
 
           {/* CEO Section */}
           <div className="text-center mb-16 flex flex-col items-center">
@@ -33,19 +33,19 @@ export default function AboutPage() {
           {/* Social Media Section */}
           <div className="flex space-x-6">
             <a href="https://www.linkedin.com/company/few-technologies/" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faLinkedin} size="2x" className="text-blue-400 hover:text-blue-600" />
+              <FontAwesomeIcon icon={faLinkedin} size="3x" className="text-blue-400 hover:text-blue-600" />
             </a>
             <a href="https://www.instagram.com/fewtechnologies?igsh=MWNpNzRzanp5b216eA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faInstagram} size="2x" className="text-pink-400 hover:text-pink-600" />
+              <FontAwesomeIcon icon={faInstagram} size="3x" className="text-pink-400 hover:text-pink-600" />
             </a>
             <a href="https://www.upwork.com/freelancers/~0143eb7bf85d560e0d?companyReference=1831232809335010620&mp_source=share" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faUpwork} size="2x" className="text-green-400 hover:text-green-600" />
+              <FontAwesomeIcon icon={faUpwork} size="3x" className="text-green-400 hover:text-green-600" />
             </a>
           </div>
         </div>
 
         <h1
-          className="mt-14 text-4xl sm:text-5xl lg:text-6xl xl:text-8xl font-bold text-center mb-12"
+          className="mt-14 text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-center mb-12"
           style={{ fontFamily: 'Montserrat, sans-serif', color: '#ffffff' }}
         >
           About Us
