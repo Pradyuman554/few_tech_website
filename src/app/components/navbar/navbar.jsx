@@ -1,47 +1,53 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { Menu, X } from 'lucide-react'
-import { motion } from 'framer-motion'
+import React, { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
-import { Button } from '@/components/ui/button'
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from '@/components/ui/sheet'
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const navItems = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/serve', label: 'Services' },
-]
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/serve", label: "Services" },
+];
 
-const MotionLink = motion(Link)
+const MotionLink = motion(Link);
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
-  const pathname = usePathname()
+  const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
-    <motion.nav 
+    <motion.nav
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="sticky top-0 z-40 w-full border-b border-gray-800 bg-black/90 backdrop-blur-md"
+      className="sticky top-0 z-40 w-full border-b border-gray-800 bg-black"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-[9.94vh] items-center justify-between">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
             className="flex items-center"
           >
-            <Link href="/" className="flex-shrink-0">
+            {/* <Link href="/" className="flex-shrink-0">
               <span className="text-xl font-semibold text-gray-100">MyLogo</span>
+            </Link> */}
+            <Link href="/" className="flex-shrink-0">
+              <Image
+                src="/images/LogoAbout.jpg" // Path to your logo image.
+                alt="Company Logo" // Alt text for accessibility.
+                width={50} // Adjust width for the logo as needed.
+                height={50} // Adjust height for the logo as needed.
+                className="cursor-pointer"
+              />
             </Link>
           </motion.div>
           <div className="hidden md:block">
@@ -53,10 +59,10 @@ export default function Navbar() {
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * (index + 1), duration: 0.5 }}
-                  className={`px-3 py-2 text-sm font-medium transition-all duration-300 ease-in-out ${
+                  className={`px-3 py-2 text-lg font-medium transition-all duration-300 ease-in-out ${
                     pathname === item.href
-                      ? 'text-purple-400'
-                      : 'text-gray-300 hover:text-purple-400'
+                      ? "text-purple-400"
+                      : "text-gray-300 hover:text-purple-400"
                   }`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -87,7 +93,10 @@ export default function Navbar() {
                   </motion.div>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[250px] sm:w-[300px] bg-gray-900">
+              <SheetContent
+                side="right"
+                className="w-[250px] sm:w-[300px] bg-gray-900"
+              >
                 <nav className="mt-5 flex flex-col space-y-3">
                   {navItems.map((item, index) => (
                     <motion.div
@@ -98,10 +107,10 @@ export default function Navbar() {
                     >
                       <Link
                         href={item.href}
-                        className={`block px-3 py-2 text-base font-medium transition-colors duration-300 ease-in-out ${
+                        className={`block px-3 py-2 text-xl font-medium transition-colors duration-300 ease-in-out ${
                           pathname === item.href
-                            ? 'text-purple-400'
-                            : 'text-gray-300 hover:text-purple-400'
+                            ? "text-purple-400"
+                            : "text-gray-300 hover:text-purple-400"
                         }`}
                         onClick={() => setIsOpen(false)}
                       >
@@ -116,5 +125,5 @@ export default function Navbar() {
         </div>
       </div>
     </motion.nav>
-  )
+  );
 }
